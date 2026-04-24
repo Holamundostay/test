@@ -5,20 +5,20 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: journal-backend
+    container_name: inventory-backend
     ports:
       - "8000:8000"
     volumes:
       - ./backend:/app
     environment:
-      - DATABASE_URL=sqlite:///./journal.db
+      - DATABASE_URL=sqlite:///./inventory.db
     command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: journal-frontend
+    container_name: inventory-frontend
     ports:
       - "5173:5173"
     volumes:
